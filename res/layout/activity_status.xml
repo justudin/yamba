@@ -1,0 +1,42 @@
+<!-- Main Layout of Status Activity -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+		
+		<!-- Title TextView-->
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:gravity="center"
+			android:textSize="30sp"
+			android:layout_margin="10dp" 
+			android:text="@string/titleStatus"/>
+		
+		<!-- Status EditText -->
+
+		<EditText
+		    android:id="@+id/editText"
+		    android:layout_width="fill_parent"
+		    android:layout_height="0dip"
+		    android:layout_weight="0.52"
+		    android:gravity="top|center_horizontal"
+		    android:hint="@string/hintText" >
+
+		</EditText>
+		
+		<!-- Update Button -->
+
+		<TextView
+		    android:id="@+id/textCount"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="" />
+
+		<Button android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:text="@string/buttonUpdate"
+			android:textSize="20sp" 
+			android:id="@+id/buttonUpdate">  
+		</Button>
+</LinearLayout>
