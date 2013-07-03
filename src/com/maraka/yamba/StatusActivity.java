@@ -45,32 +45,14 @@ public class StatusActivity extends Activity implements OnClickListener,
 		textCount.setTextColor(Color.GREEN); //
 		editText.addTextChangedListener(this); //
 
-		/*//
-		twitter = new Twitter("student", "password"); //
-		twitter.setAPIRootUrl("http://yamba.marakana.com/api");*/
-	
 		prefs = PreferenceManager.getDefaultSharedPreferences(this); //
 		prefs.registerOnSharedPreferenceChangeListener(this);
 
-	}
-	
-	private Twitter getTwitter() {
-		if (twitter == null) { //
-			String username, password, apiRoot;
-			username = prefs.getString("username", "");
-			password = prefs.getString("password", "");
-			apiRoot = prefs.getString("apiRoot", "http://yamba.marakana.com/api");
-			// Connect to twitter.com
-			twitter = new Twitter(username, password);
-			twitter.setAPIRootUrl(apiRoot); //
-		}
-		return twitter;
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		// getMenuInflater().inflate(R.menu.status, menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
@@ -80,7 +62,13 @@ public class StatusActivity extends Activity implements OnClickListener,
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		//
+		case R.id.itemServiceStart:
+			startService(new Intent(this, UpdaterService.class)); //
+			break;
+		case R.id.itemServiceStop:
+			stopService(new Intent(this, UpdaterService.class)); //
+			break;
+
 		case R.id.itemPrefs:
 			startActivity(new Intent(this, PrefsActivity.class)); //
 			break;
@@ -94,7 +82,6 @@ public class StatusActivity extends Activity implements OnClickListener,
 		String status = editText.getText().toString();
 		new PostToTwitter().execute(status); //
 		Log.d(TAG, "onClicked");
-
 	}
 
 	// Asynchronously posts to twitter
@@ -102,21 +89,14 @@ public class StatusActivity extends Activity implements OnClickListener,
 		// Called to initiate the background activity
 		@Override
 		protected String doInBackground(String... statuses) { //
-//			try {
-//				Twitter.Status status = twitter.updateStatus(statuses[0]);
-//				
-//			} catch (TwitterException e) {
-//				Log.e(TAG, e.toString());
-//				e.printStackTrace();
-//				return "Failed to post";
-//			}
-			
 			// Update twitter status
 			try {
-				Twitter.Status status = getTwitter().setStatus(editText.getText().toString());
+				YambaApplication yamba = ((YambaApplication) getApplication());
+				Twitter.Status status = yamba.getTwitter().setStatus(
+						editText.getText().toString());
 				return status.text;
 			} catch (TwitterException e) {
-				Log.d(TAG, "Twitter setStatus failed: " + e);
+				Log.e(TAG, "Failed to connect to twitter service", e);
 				return "Failed to post";
 			}
 		}
@@ -133,6 +113,7 @@ public class StatusActivity extends Activity implements OnClickListener,
 		protected void onPostExecute(String result) { //
 			Toast.makeText(StatusActivity.this, result, Toast.LENGTH_LONG)
 					.show();
+			editText.setText("");
 		}
 	}
 
@@ -161,8 +142,7 @@ public class StatusActivity extends Activity implements OnClickListener,
 	}
 
 	@Override
-	public void onSharedPreferenceChanged(SharedPreferences prefs,
-			String key) {
+	public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 		// TODO Auto-generated method stub
 		// invalidate twitter object
 		twitter = null;

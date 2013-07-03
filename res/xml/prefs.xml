@@ -3,4 +3,5 @@
     <EditTextPreference android:key="username" android:title="@string/titleUsername" android:summary="@string/summaryUsername"/>
     <EditTextPreference android:key="password" android:title="@string/titlePassword" android:password="true" android:summary="@string/summaryPassword"/>
     <EditTextPreference android:title="@string/titleApiRoot" android:key="apiRoot" android:summary="@string/summaryApiRoot" android:defaultValue="@string/defApiRoot"/>
+    
 </PreferenceScreen>
