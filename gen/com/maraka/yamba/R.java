@@ -24,26 +24,34 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090006;
+        public static final int action_settings=0x7f09000a;
         public static final int buttonUpdate=0x7f090002;
         public static final int editText=0x7f090000;
-        public static final int itemPrefs=0x7f090003;
-        public static final int itemServiceStart=0x7f090004;
-        public static final int itemServiceStop=0x7f090005;
+        public static final int itemPrefs=0x7f090007;
+        public static final int itemServiceStart=0x7f090008;
+        public static final int itemServiceStop=0x7f090009;
+        public static final int listTimeline=0x7f090003;
         public static final int textCount=0x7f090001;
+        public static final int textCreatedAt=0x7f090005;
+        public static final int textText=0x7f090006;
+        public static final int textUser=0x7f090004;
     }
     public static final class layout {
         public static final int activity_status=0x7f030000;
+        public static final int activity_timeline=0x7f030001;
+        public static final int row=0x7f030002;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
         public static final int status=0x7f080001;
+        public static final int timeline=0x7f080002;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
         public static final int buttonUpdate=0x7f060005;
         public static final int defApiRoot=0x7f06000f;
+        public static final int hello_world=0x7f060011;
         public static final int hintText=0x7f060004;
         public static final int summaryApiRoot=0x7f06000e;
         public static final int summaryPassword=0x7f06000d;
@@ -54,8 +62,10 @@ public final class R {
         public static final int titleServiceStart=0x7f060007;
         public static final int titleServiceStop=0x7f060008;
         public static final int titleStatus=0x7f060003;
+        public static final int titleTimeline=0x7f060012;
         public static final int titleUsername=0x7f060009;
         public static final int titleYamba=0x7f060002;
+        public static final int title_activity_timeline=0x7f060010;
     }
     public static final class style {
         /** 

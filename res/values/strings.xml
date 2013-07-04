@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Yamba Modified by justudin</string>
+    <string name="app_name">Yamba justudin</string>
     <string name="action_settings">Settings</string>
     <string name="titleYamba">Yamba</string>
     <string name="titleStatus">Status Update</string>
     <string name="hintText">Please enter your 140-character status</string>
     <string name="buttonUpdate">Update</string>
-    <string name="titlePrefs">Prefs</string>    
+    <string name="titlePrefs">Prefs</string>
     <string name="titleServiceStart">Start Service</string>
     <string name="titleServiceStop">Stop Service</string>
     <string name="titleUsername">Username</string>
@@ -17,5 +17,9 @@
     <string name="summaryPassword">Please enter your password</string>
     <string name="summaryApiRoot">URL of Root API for your service</string>
     <string name="defApiRoot">http://yamba.marakana.com/api</string>
+    <string name="title_activity_timeline">TimelineActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="titleTimeline">Latest Tweets</string>
+    
 
 </resources>

@@ -7,15 +7,17 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.maraka.yamba.YambaApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
-        android:name=".YambaApplication">
-        <service android:name=".UpdaterService" /> 
+        android:theme="@style/AppTheme" >
+        <service android:name="com.maraka.yamba.UpdaterService" />
+
         <activity
             android:name="com.maraka.yamba.StatusActivity"
             android:label="@string/app_name" >
@@ -25,6 +27,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PrefsActivity" android:title="@string/titlePrefs"></activity>
+        <activity
+            android:name="com.maraka.yamba.PrefsActivity"
+            android:title="@string/titlePrefs" >
+        </activity>
+        <activity
+            android:name="com.maraka.yamba.TimelineActivity"
+            android:label="@string/title_activity_timeline" >
+        </activity>
     </application>
+
 </manifest>
