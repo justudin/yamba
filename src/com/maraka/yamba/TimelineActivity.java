@@ -7,14 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 public class TimelineActivity extends Activity {
 	DbHelper dbHelper;
 	SQLiteDatabase db;
 	Cursor cursor; //
 	ListView listTimeline; //
-	SimpleCursorAdapter adapter; //
+	TimelineAdapter adapter;//
 	static final String[] FROM = { DbHelper.C_CREATED_AT, DbHelper.C_USER,
 	DbHelper.C_TEXT }; //
 	static final int[] TO = { R.id.textCreatedAt, R.id.textUser, R.id.textText }; //
@@ -46,8 +45,8 @@ public class TimelineActivity extends Activity {
 				DbHelper.C_CREATED_AT + " DESC"); //
 		startManagingCursor(cursor); //
 
-		// Set up the adapter
-		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, FROM, TO);
+		// Create the adapter
+		adapter = new TimelineAdapter(this, cursor); //
 		listTimeline.setAdapter(adapter); //
 
 	}
